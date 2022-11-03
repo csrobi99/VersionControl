@@ -13,5 +13,7 @@ namespace feladat6.Entities
         {
             return new Ball();
         }
+
+        
     }
 }
