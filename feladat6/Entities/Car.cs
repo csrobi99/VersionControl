@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace feladat6.Entities
 {
-    public class Car : Abstractions.Toy
+    public class Car : Toy
     {
        
 

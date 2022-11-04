@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace feladat6.Entities
 {
-    public class CarFactory : Abstractions.IToyFactory
+    public class CarFactory : IToyFactory
     {
-        public Abstractions.Toy CreateNew()
+        public Toy CreateNew()
         {
             return new Car();
         }
