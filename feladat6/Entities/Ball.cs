@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace feladat6.Entities
 {
-    public class Toy : Abstractions.Toy
+    public class Ball : Toy
     {
        
 

@@ -1,4 +1,5 @@
-﻿using feladat6.Entities;
+﻿using feladat6.Abstractions;
+using feladat6.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +14,10 @@ namespace feladat6
 {
     public partial class Form1 : Form
     {
-        private List<Entities.Toy> _toys = new List<Entities.Toy>();
+        private List<Toy> _toys = new List<Toy>();
 
-        private Entities.IToyFactory _factory;
-        public Entities.IToyFactory Factory
+        private IToyFactory _factory;
+        public IToyFactory Factory
         {
             get { return _factory; }
             set { _factory = value; }
@@ -24,7 +25,7 @@ namespace feladat6
         public Form1()
         {
             InitializeComponent();
-            Factory = new IToyFactory();
+            Factory = new BallFactory();
         }
         
         private void createTimer_Tick(object sender, EventArgs e)
