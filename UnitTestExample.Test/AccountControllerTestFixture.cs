@@ -22,5 +22,19 @@ namespace UnitTestExample.Test
             var actualResult = accountController.ValidateEmail(email);
             Assert.AreEqual(expectedResult, actualResult);
         }
+
+        [Test,
+        TestCase("abcdefgh", false),
+        TestCase("ABCD1234", false),
+        TestCase("abcd1234", false),
+        TestCase("abc", false),
+        TestCase("AbCd1234", true)
+         ]
+        public void TestValidatePassword(string password, bool expectedResult)
+        {
+            var accountController = new AccountController();
+            var actualResult = accountController.ValidatePassword(password);
+            Assert.AreEqual(expectedResult, actualResult);
+        }
     }
 }
