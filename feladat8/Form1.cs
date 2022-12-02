@@ -22,6 +22,8 @@ namespace feladat8
             List<DeathProbability> DeathProbabilities = new List<DeathProbability>();
 
             Population = GetPopulation(@"C:\Temp\nép.csv");
+            BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
+            DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
         }
 
 
@@ -44,6 +46,49 @@ namespace feladat8
             }
 
             return population;
+        }
+
+
+        public List<BirthProbability> GetBirthProbabilities(string csvpath2)
+        {
+            List<BirthProbability> birthprobability = new List<BirthProbability>();
+
+            using(StreamReader sr= new StreamReader(csvpath2,Encoding.Default))
+            {
+                while (!sr.EndOfStream)
+                {
+                    var line = sr.ReadLine().Split(';');
+                    birthprobability.Add(new BirthProbability()
+                    {
+                        Age=int.Parse(line[0]),
+                        NbrOfChildren=int.Parse(line[1]),
+                        Probability=Convert.ToDouble(line[2])
+                    });
+                }
+            }
+
+            return birthprobability;
+        }
+
+        public List<DeathProbability> GetDeathProbabilities(string csvpath3)
+        {
+            List<DeathProbability> deathprobability = new List<DeathProbability>();
+
+            using (StreamReader sr = new StreamReader(csvpath3, Encoding.Default))
+            {
+                while (!sr.EndOfStream)
+                {
+                    var line = sr.ReadLine().Split(';');
+                    deathprobability.Add(new DeathProbability()
+                    {
+                        Gender = (Gender)Enum.Parse(typeof(Gender), line[0]),
+                        Age = int.Parse(line[1]),
+                        Probability = Convert.ToDouble(line[2])
+                    });
+                }
+            }
+
+            return deathprobability;
         }
     }
 }
