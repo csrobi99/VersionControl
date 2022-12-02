@@ -10,6 +10,6 @@ namespace feladat8.Entities
     {
         public Gender Gender { get; set; }
         public int Age { get; set; }
-        public double Probability { get; set; }
+        public double P { get; set; }
     }
 }
